@@ -1,7 +1,7 @@
 {
-  "name": "I, Frankenstein",
+  "name": "Moi, Frankenstein",
   "short_name": "Frankenstein",
-  "description": "An interactive retelling of Mary Shelley's classic",
+  "description": "Une adaptation interactive du classique de Mary Shelley",
   "start_url": "./story.html",
   "display": "standalone",
   "background_color": "#1a1a2e",
