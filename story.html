@@ -1737,13 +1737,21 @@ function saveGame() {
     localStorage.setItem('FrankensteinSave', JSON.stringify(state));
 }
 
+function sanitizeOnclickQuotes(html) {
+    // Fix curly/smart quotes inside onclick handlers that may have been
+    // baked into saved game state from a previous buggy version
+    return html.replace(/onclick="([^"]*)"/g, function(match, inner) {
+        return 'onclick="' + inner.replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"') + '"';
+    });
+}
+
 function loadGame() {
     const saved = localStorage.getItem('FrankensteinSave');
     if (saved) {
         try {
             const state = JSON.parse(saved);
-            document.getElementById('sofar').innerHTML = state.sofar || '';
-            document.getElementById('thisbit').innerHTML = state.thisbit || '';
+            document.getElementById('sofar').innerHTML = sanitizeOnclickQuotes(state.sofar || '');
+            document.getElementById('thisbit').innerHTML = sanitizeOnclickQuotes(state.thisbit || '');
             curbit = state.curbit || '';
             if (state.vars) {
                 for (let i = 0; i < state.vars.length; i++) {
