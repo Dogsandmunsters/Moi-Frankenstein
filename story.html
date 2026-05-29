@@ -1905,7 +1905,7 @@ function changesect(newsect, addtext) {
             const autoChapterId = sectionToChapter[nextSect];
             markChapterVisited(nextSect);
             stitchedContent += insertChapterMarker(autoChapterId);
-            stitchedContent += '<div class="chapter-image"><img src="' + chapterImages[nextSect] + '" alt="Chapter illustration"/></div>';
+            stitchedContent += '<div class="chapter-image"><img src="' + chapterImages[nextSect] + '" alt="Illustration de chapitre"/></div>';
             currentChapterImage = chapterImages[nextSect];
         }
         
@@ -1992,7 +1992,7 @@ function movePreviousToSofar(addtext, chapterImage, chapterId) {
         thisbiti = thisbiti + insertChapterMarker(chapterId);
     }
     if (chapterImage) {
-        thisbiti = thisbiti + '<div class="chapter-image"><img src="' + chapterImage + '" alt="Chapter illustration"/></div>';
+        thisbiti = thisbiti + '<div class="chapter-image"><img src="' + chapterImage + '" alt="Illustration de chapitre"/></div>';
     }
     
     sofarEl.innerHTML = sofari + thisbiti;
@@ -6262,7 +6262,7 @@ function beginPart(partNum) {
     markChapterVisited(data.firstSection);
     
     // Show the chapter marker and first chapter image
-    document.getElementById('sofar').innerHTML = insertChapterMarker(data.chapterId) + '<div class="chapter-image"><img src="' + data.chapterImage + '" alt="Chapter illustration"/></div>';
+    document.getElementById('sofar').innerHTML = insertChapterMarker(data.chapterId) + '<div class="chapter-image"><img src="' + data.chapterImage + '" alt="Illustration de chapitre"/></div>';
     currentChapterImage = data.chapterImage;
     
     // Now show the first section
